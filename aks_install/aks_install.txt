@@ -1,0 +1,29 @@
+Azure Container Service (AKS) makes it simple to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. This enables you to use your existing skills, or draw upon a large and growing body of community expertise, to deploy and manage container-based applications on Microsoft Azure.
+By using AKS, you can take advantage of the enterprise-grade features of Azure, while still maintaining application portability through Kubernetes and the Docker image format.
+Run the following CLI commands to deploy AKS. 
+
+az group create --name myResourceGroup --location eastus
+
+az aks create --resource-group myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
+
+
+az aks install-cli
+
+az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+
+
+Verify the cluster is running by running the following command. 
+
+
+kubectl get nodes
+
+You should see something similar to the output shown below
+
+
+jordan-nielsen:~ jordannielsen$ kubectl get nodes
+NAME                       STATUS    ROLES     AGE       VERSION
+aks-nodepool1-22349956-0   Ready     agent     12h       v1.7.9 
+
+See the following link for more information on standing up AKS clusters. 
+https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough
+
