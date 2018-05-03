@@ -11,9 +11,10 @@ draw upon a large and growing body of community expertise, to deploy and manage 
 Create a resource group in a region that supports AKS 
 
         az login
+
         az group create --name myResourceGroup --location eastus
 
-        Note: AKS is supported in the follwing regions at the time of this documentation. 
+        Note: AKS is supported in the follwing regions at this time. 5/3/18
 
         Azure Container Service (AKS) is available for preview in the following regions:
 
