@@ -16,7 +16,8 @@ An Ingress is a collection of rules that allow inbound connections to reach the 
 
 In order for the Ingress resource to work, the cluster must have an Ingress controller running. This is unlike other types of controllers, which typically run as part of the kube-controller-manager binary, and which are typically started automatically as part of cluster creation. You need to choose the ingress controller implementation that is the best fit for your cluster, or implement one. Common Ingress Controllers are Nginx, Traffic and cloud specific integeration. 
 
-n order for the Ingress resource to work, the cluster must have an Ingress controller running. This is unlike other types of controllers, which typically run as part of the kube-controller-manager binary, and which are typically started automatically as part of cluster creation. You need to choose the ingress controller implementation that is the best fit for your cluster, or implement one. We currently support and maintain GCE and nginx controllers.
+In order for the Ingress resource to work, the cluster must have an Ingress controller running. This is unlike other types of controllers, which typically run as part of the kube-controller-manager binary, and which are typically started automatically as part of cluster creation. You need to choose the ingress controller implementation that is the best fit for your cluster, or implement one. We currently support and maintain GCE and nginx controllers.
+
 
 ![](2018-05-03-16-30-51.png)
 
@@ -128,7 +129,9 @@ Next modify your hosts file to test things out.
 
 You should now be able to visit traefik-ui.minikube in the browser and view the Træfik web UI. 
 You will eventually want to use DNS, but this is a good way to quickly test and make sure Traefik is working correctly. 
- 
+
+## Now lets test with a very simple Nginx web application
+
 For more information visit the Traefik github page for more information on Kubernetes integeration. 
 
 https://github.com/containous/traefik/blob/master/docs/user-guide/kubernetes.md
