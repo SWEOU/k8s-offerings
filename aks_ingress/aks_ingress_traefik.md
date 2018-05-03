@@ -2,6 +2,25 @@
 
 Træfik is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Træfik integrates with your existing infrastructure components (Docker, Swarm mode, Kubernetes, Marathon, Consul, Etcd, Rancher, Amazon ECS, ...) and configures itself automatically and dynamically. Telling Træfik where your orchestrator is could be the only configuration step you need to do.
 
+## What is an Ingress in Kubernetes/AKS
+
+An Ingress is a collection of rules that allow inbound connections to reach the cluster services.
+
+     Internet
+        |
+     Ingress
+        |
+     Services
+
+## What is an Ingress Controller in Kubernetes/AKS
+
+In order for the Ingress resource to work, the cluster must have an Ingress controller running. This is unlike other types of controllers, which typically run as part of the kube-controller-manager binary, and which are typically started automatically as part of cluster creation. You need to choose the ingress controller implementation that is the best fit for your cluster, or implement one. Common Ingress Controllers are Nginx, Traffic and cloud specific integeration. 
+
+n order for the Ingress resource to work, the cluster must have an Ingress controller running. This is unlike other types of controllers, which typically run as part of the kube-controller-manager binary, and which are typically started automatically as part of cluster creation. You need to choose the ingress controller implementation that is the best fit for your cluster, or implement one. We currently support and maintain GCE and nginx controllers.
+
+![](2018-05-03-16-30-51.png)
+
+
 ## Loadbalancing using the Traefik Ingress Controller
 
 Create the following Deployment and Service for Traefik. This will create an Azure load balancer to act as a front end for Traefik. 
@@ -63,7 +82,7 @@ node in the cluster.
             type: LoadBalancer
 
 
-Create an ingress resource and test the application by using the following manifest files. This will expose the Træfik Web UI.
+## Create an ingress resource and test the application by using the following manifest files. This will expose the Træfik Web UI.
 
 
             apiVersion: v1
