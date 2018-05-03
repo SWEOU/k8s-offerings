@@ -8,6 +8,10 @@ draw upon a large and growing body of community expertise, to deploy and manage 
 
 ## Run the following commands to deploy an AKS cluster
 
+NOTE: If you haven't install the Azure CLI, please do that first by following the instruction at the following link. 
+
+`https://github.com/SWEOU/k8s-offerings/blob/master/az_cli_install/az_cli_install.md`
+
 Create a resource group in a region that supports AKS 
 
         az login
