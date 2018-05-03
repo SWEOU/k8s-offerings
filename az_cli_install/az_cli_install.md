@@ -19,3 +19,11 @@ Browse to the following page to grab the latest CLI MSI file for Windows.
 Test the Azure CLI
 
         az login
+
+## Run the following commands to install and configure the CLI on Linux
+
+        curl -L https://aka.ms/InstallAzureCli | bash
+
+Test the Linux CLI
+
+        az login
