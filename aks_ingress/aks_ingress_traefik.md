@@ -1,8 +1,12 @@
+## What is Traefik
+
+Træfik is a modern HTTP reverse proxy and load balancer that makes deploying microservices easy. Træfik integrates with your existing infrastructure components (Docker, Swarm mode, Kubernetes, Marathon, Consul, Etcd, Rancher, Amazon ECS, ...) and configures itself automatically and dynamically. Telling Træfik where your orchestrator is could be the only configuration step you need to do.
+
 ## Loadbalancing using the Traefik Ingress Controller
 
 Create the following Deployment and Service for Traefik. This will create an Azure load balancer to act as a front end for Traefik. 
 You can also choose to run Traefik as a Daemonset. Configuring Traefik as a Daemonset will cause the application to run on every
-node in the cluster.  
+node in the cluster.
 
 
             ---
@@ -59,7 +63,7 @@ node in the cluster.
             type: LoadBalancer
 
 
-            Create an ingress resource and test the application by using the following manifest files. This will expose the Træfik Web UI.
+Create an ingress resource and test the application by using the following manifest files. This will expose the Træfik Web UI.
 
 
             apiVersion: v1
