@@ -28,91 +28,89 @@ Create the following Deployment and Service for Traefik. This will create an Azu
 You can also choose to run Traefik as a Daemonset. Configuring Traefik as a Daemonset will cause the application to run on every
 node in the cluster.
 
-
-            ---
-            apiVersion: v1
-            kind: ServiceAccount
-            metadata:
-            annotations:
-                prometheus.io/scrape: 'true'
-            name: traefik-ingress-controller
-            namespace: kube-system
-            ---
-            kind: Deployment
-            apiVersion: extensions/v1beta1
-            metadata:
-            name: traefik-ingress-controller
-            namespace: kube-system
-            labels:
-                k8s-app: traefik-ingress-lb
-            spec:
-            replicas: 1
-            selector:
-                matchLabels:
-                k8s-app: traefik-ingress-lb
-            template:
-                metadata:
-                labels:
-                    k8s-app: traefik-ingress-lb
-                    name: traefik-ingress-lb
-                spec:
-                serviceAccountName: traefik-ingress-controller
-                terminationGracePeriodSeconds: 60
-                containers:
-                - image: traefik
-                    name: traefik-ingress-lb
-                    args:
-                    - --api
-                    - --kubernetes
-            ---
-            kind: Service
-            apiVersion: v1
-            metadata:
-            name: traefik-ingress-service
-            namespace: kube-system
-            spec:
-            selector:
-                k8s-app: traefik-ingress-lb
-            ports:
-                - protocol: TCP
-                port: 80
-                name: web
-                - protocol: TCP
-                port: 8080
-                name: admin
-            type: LoadBalancer
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+  labels:
+    k8s-app: traefik-ingress-lb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: traefik-ingress-lb
+  template:
+    metadata:
+      labels:
+        k8s-app: traefik-ingress-lb
+        name: traefik-ingress-lb
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      terminationGracePeriodSeconds: 60
+      containers:
+      - image: traefik
+        name: traefik-ingress-lb
+        args:
+        - --api
+        - --kubernetes
+        - --logLevel=INFO
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-ingress-service
+  namespace: kube-system
+spec:
+  selector:
+    k8s-app: traefik-ingress-lb
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+    - protocol: TCP
+      port: 8080
+      name: admin
+  type: NodePort
 
 
 ## Create an ingress resource and test the application by using the following manifest files. This will expose the Træfik Web UI.
 
 
-            apiVersion: v1
-            kind: Service
-            metadata:
-            name: traefik-web-ui
-            namespace: kube-system
-            spec:
-            selector:
-                k8s-app: traefik-ingress-lb
-            ports:
-            - port: 80
-                targetPort: 8080
-            ---
-            apiVersion: extensions/v1beta1
-            kind: Ingress
-            metadata:
-            name: traefik-web-ui
-            namespace: kube-system
-            annotations:
-                kubernetes.io/ingress.class: traefik
-            spec:
-            rules:
-            - host: traefik-ui.minikube
-                http:
-                paths:
-                - backend:
-                    serviceName: traefik-web-ui
-                    servicePort: 80
+apiVersion: v1
+kind: Service
+metadata:
+  name: traefik-web-ui
+  namespace: kube-system
+spec:
+  selector:
+    k8s-app: traefik-ingress-lb
+  ports:
+  - port: 80
+    targetPort: 8080
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-web-ui
+  namespace: kube-system
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  rules:
+  - host: traefik-ui.minikube
+    http:
+      paths:
+      - backend:
+          serviceName: traefik-web-ui
+          servicePort: 80
 
 
 ## Test this by finding the load balancer IP address of the Traefik Ingress service. 
@@ -136,3 +134,4 @@ For more information visit the Traefik github page for more information on Kuber
 
 https://github.com/containous/traefik/blob/master/docs/user-guide/kubernetes.md
 
+https://docs.traefik.io/user-guide/kubernetes/
