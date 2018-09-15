@@ -138,7 +138,7 @@
 
 		You will notice that without any downtime it now directs traffic only to the single instance left. Challenge Set 5: Updates and Rollbacks
 
-##Challenge: 5
+## Challenge: 5
 
 	• We have staged an updated version of the Web app on Docker Hub with id and version:
 
