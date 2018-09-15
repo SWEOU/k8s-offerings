@@ -1,5 +1,5 @@
 
-## Challenge Set 1: Introduction
+## Challenge: 1
 
 
 	• Install the recommended tool-set:
@@ -19,50 +19,50 @@
 
 		Hint: This can be done easily with the Azure CLI
 
-• Create a new, multi-node AKS cluster with RBAC disabled.
+	• Create a new, multi-node AKS cluster with RBAC disabled.
 
 
-Use a single core DS1v2 machine for your worker nodes.
+		Use a single core DS1v2 machine for your worker nodes.
 
-• Use kubectl to prove that the cluster is a multi-node cluster and is working
+	• Use kubectl to prove that the cluster is a multi-node cluster and is working
 
-• Bring up the Kubernetes dashboard in your browser
-
-
-Hint: Again, the Azure CLI makes this very easy. Challenge Set 2: Your First Deployment
-
-Challenges:
-
-• We have staged the FabMedical apps on Docker Hub at these locations:
+	• Bring up the Kubernetes dashboard in your browser
 
 
-API app: dta2018hack/content-api
+		Hint: Again, the Azure CLI makes this very easy. Challenge Set 2: Your First Deployment
 
-Web app: dta2018hack/content-web
+## Challenge: 2
 
-• Deploy the API app through the dashboard using these settings
-
-Number of pods: 1
-
-Service: Internal
-
-Port and Target Port: 3001
-
-CPU: 0.5
-
-Memory: 128MB
-
-• We have not exposed the API app to the external world. Therefore, to test it you need to:
+	• We have staged the FabMedical apps on Docker Hub at these locations:
 
 
-Figure out how to get a bash shell on the API app pod just deployed.
+		API app: dta2018hack/content-api
 
-Curl the url of the “/speakers” end point.
+		Web app: dta2018hack/content-web
 
-You should get a huge json document in response. Challenge Set 3: Your Second Deployment
+	• Deploy the API app through the dashboard using these settings
+
+		Number of pods: 1
+
+		Service: Internal
+
+		Port and Target Port: 3001
+
+		CPU: 0.5
+
+		Memory: 128MB
+
+	• We have not exposed the API app to the external world. Therefore, to test it you need to:
 
 
-Challenges:
+		Figure out how to get a bash shell on the API app pod just deployed.
+
+		Curl the url of the “/speakers” end point.
+
+		You should get a huge json document in response. Challenge Set 3: Your Second Deployment
+
+
+## Challenge: 3
 
 • We have staged the FabMedical apps on Docker Hub at these locations:
 
