@@ -103,7 +103,7 @@
 
 		If you don’t see the lists, then the web app is not able to communicate with the API app. Challenge Set 4: Scale and High Availability
 
-Challenge: #4
+## Challenge: 4
 
 	• Scale the Web app to 2 instances
 
@@ -138,7 +138,7 @@ Challenge: #4
 
 		You will notice that without any downtime it now directs traffic only to the single instance left. Challenge Set 5: Updates and Rollbacks
 
-Challenge: 5
+##Challenge: 5
 
 	• We have staged an updated version of the Web app on Docker Hub with id and version:
 
