@@ -1,29 +1,23 @@
-DTA What The Hack – Challenges
 
-Kubernetes as Infrastructure
-
-Challenge Set 1: Introduction
-
-Challenges:
+## Challenge Set 1: Introduction
 
 
-• Install the recommended tool-set:
+	• Install the recommended tool-set:
 
-Windows Subsystem for Linux
+		Windows Subsystem for Linux
 
-Azure CLI
+		Azure CLI
 
-Update to the latest
+		Update to the latest
 
-Must be at least version 2.0.42
+		Must be at least version 2.0.42
 
-Visual Studio Code
+		Visual Studio Code
+
+		Install the Kubernetes command line tool (kubectl).
 
 
-• Install the Kubernetes command line tool (kubectl).
-
-
-Hint: This can be done easily with the Azure CLI
+		Hint: This can be done easily with the Azure CLI
 
 • Create a new, multi-node AKS cluster with RBAC disabled.
 
